@@ -1,11 +1,12 @@
 import React, {useContext, useRef} from 'react';
 import {userActivity} from "../context/UserActivity.jsx";
 import {userData} from "../context/UserAuth.jsx";
-import {submitUserActivity} from "../util/authValidate.js";
+
+import {Action} from "../reducers/userActivityReducer.js";
 
 const UserInput = () => {
 
-    const {image, name, city, position, setImage, setName, setCity, setPosition} = useContext(userActivity)
+    const { state,setState} = useContext(userActivity)
 
     const {userDetails} = useContext(userData)
 
@@ -34,23 +35,23 @@ const UserInput = () => {
                 <input ref={positionReg} type="text" placeholder={"position"}/> <br/><br/>
 
                 <br/>
-                <button onClick={() => submitUserActivity(
-                    imageReg,
-                    nameReg,
-                    cityReg,
-                    positionReg,
-                    setImage,
-                    setName,
-                    setCity,
-                    setPosition
-                )}> submit
+                <button onClick={()=> setState({
+                    type:Action.setData,
+                    data:{
+                        image:imageReg.current.value,
+                        name:nameReg.current.value,
+                        city:cityReg.current.value,
+                        position:positionReg.current.value
+                    }
+
+                })}> submit
                 </button>
                 <br/>
                 <br/>
-                <p> {image}</p>
-                <p>   {name}</p>
-                <p>  {city}</p>
-                <p>  {position}</p>
+                <p> {state.image}</p>
+                <p>   {state.name}</p>
+                <p>  {state.city}</p>
+                <p>  {state.position}</p>
 
             </div> : ''}
         </div>
