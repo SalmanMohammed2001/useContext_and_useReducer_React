@@ -17,7 +17,7 @@ const Login=()=> {
                 <span> Password : </span>
                 <input ref={passwordRef} type="password" placeholder={"password...."}/> <br/> <br/>
                 <button onClick={()=>{
-                    return submitHandle(usernameRef,passwordRef,setUserDetails)
+                    submitHandle(usernameRef,passwordRef,setUserDetails)
                 }}> submit </button>
 
             </>}
