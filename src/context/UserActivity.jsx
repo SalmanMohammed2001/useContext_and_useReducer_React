@@ -2,9 +2,9 @@ import React, {createContext} from 'react';
 
 export  const userActivity=createContext({})
 
-const UserActivity = (props) => {
+const UserActivity = ({children}) => {
         return (
-            <div>UserActivity</div>
+            <userActivity.Provider>{children}</userActivity.Provider>
         )
 
     }
