@@ -1,12 +1,13 @@
 import './App.css'
 import UserAuth from './context/UserAuth'
+import Login from "./components/Login";
 
 
 
 function App() {
     return (
         <UserAuth>
-            Amila
+            <Login/>
         </UserAuth>
     )
 }
